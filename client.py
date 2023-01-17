@@ -1,6 +1,25 @@
 #!/usr/bin/env python3
 import socket, sys
 
+# def get(host, port):
+#
+#     BYTES_TO_READ = 4096
+#
+#     # sending raw bytes by using b""
+#     request = b"GET / HTTP1.1\nHost:" + host.encode('utf-8') + b"\n\n"
+#
+#     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#     s.connect((host, port))
+#     s.send(request)
+#     # shuts down the right part of the socket  (client.py --> google) tells it we're done transmitting
+#     s.shutdown(socket.SHUT_WR)
+#     result = s.recv(BYTES_TO_READ)  # receive stuff from google
+#
+#     while len(result) > 0:
+#         print(result)
+#         result = s.recv(BYTES_TO_READ)
+#     s.close()
+
 #create a tcp socket
 def create_tcp_socket():
     print('Creating socket')
@@ -35,6 +54,9 @@ def send_data(serversocket, payload):
     print("Payload sent successfully")
 
 def main():
+
+    get("www.google.com", 80)
+
     try:
         #define address info, payload, and buffer size
         host = 'www.google.com'
